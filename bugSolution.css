@@ -1,0 +1,19 @@
+To solve this issue, we need to understand CSS specificity and ensure the selectors are applied in a predictable and consistent manner.  The best practice is to avoid overly complex and conflicting selectors.  One way to solve this is to use more specific selectors to target the element, and if it is unavoidable to use multiple rules, then ensuring that the most specific rule is at the end of your stylesheet.  Alternatively, using the `!important` flag should override any specificity issues but it's usually not the best practice.
+
+```css
+div {
+  color: blue;
+}
+
+.myClass div {
+  color: red;
+}
+
+#myID div {
+  color: green;
+}
+
+#myID .myClass div {
+  color: purple; /* This will always be applied due to highest specificity */
+}
+```
