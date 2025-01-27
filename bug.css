@@ -1,0 +1,21 @@
+The following CSS code snippet demonstrates an uncommon issue related to the specificity of CSS selectors:
+
+```css
+div {
+  color: blue;
+}
+
+.myClass div {
+  color: red;
+}
+
+#myID div {
+  color: green;
+}
+
+#myID .myClass div {
+  color: purple;
+}
+```
+
+The issue lies in the unexpected behavior when multiple selectors with varying specificity are applied to the same element.  In this example, a `<div>` element is targeted by four different rules. If an element has the class `myClass`, the `id myID`, and its parent is a `div`, the final color should be purple since the selector `#myID .myClass div` has the highest specificity. However, depending on the order of CSS declarations, unexpected behavior might arise due to specificity.
